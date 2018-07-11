@@ -1,0 +1,60 @@
+Archivo con comandos utilizados a lo largo de la implementación de API REST con NodeJs
+
+Postgresql
+
+
+NodeJs
+
+$ curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+$ sudo dnf -y install nodejs
+
+Express
+
+$ sudo npm install -g express-generator
+- Creación de proyecto
+$ express ApiRestSensores --view=jade
+$ cd ApiRestSensores 
+$ npm install
+$ npm start
+- Ingresar a localhost:3000 para validar funcionamiento
+
+Postgres y Express
+$ sudo npm install pg-promise
+
+Remove nodejs and npm
+$ sudo rm -rf /usr/{lib/node{,/.npm,_modules},bin,share/man}/{npm*,node*,man1/node*}
+$ sudo dnf remove nodejs
+
+Proxy problems
+$ npm config set proxy http://proxy.company.com:8080
+$ npm config set https-proxy http://proxy.company.com:8080
+
+Install bluebird
+$ sudo npm install bluebird
+
+Conectar base de datos en js
+- Se genera al archivo queries.js en la raiz.
+- Se agregan las variables de conexión para la base de datos.
+- Se agregan las funciones a utilizar.
+- Es necesario agregarlas a module.exports.
+- Se debe acceder a /routes/index.js para agregar las funciones creadas.
+
+Configuración de puerto
+- En el archivo www que se encuentra en la raiz.
+
+Método GET
+- Para consultar información de la base de datos.
+- curl -X GET http://127.0.0.1:3000/api/puppies
+- curl -X GET http://127.0.0.1:3000/api/puppies/1
+
+Método POST
+- Para crear nuevos datos en la base de datos.
+- curl -X POST --data "name=Bobby&breed=french&age=4&sex=m" http://127.0.0.1:3000/api/puppies
+
+Método PUT
+- Para actualizar datos en la base de datos.
+- curl -X PUT --data "name=Bobby&breed=french-puddle&age=4&sex=m" http://127.0.0.1:3000/api/puppies/3
+
+Método DELETE
+- Para remover datos de la base de datos.
+- curl -X DELETE http://127.0.0.1:3000/api/puppies/3
